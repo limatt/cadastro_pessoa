@@ -37,8 +37,9 @@ class Users with ChangeNotifier {
           () => User(
                 id: id,
                 nome: user.nome,
-                email: user.email,
-                avatarUrl: user.avatarUrl,
+                telefone: user.telefone,
+                cep: user.cep,
+                qtdMembros: user.qtdMembros,
               ));
     }
     notifyListeners();

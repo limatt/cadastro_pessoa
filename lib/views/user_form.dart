@@ -18,13 +18,15 @@ class _UserFormState extends State<UserForm> {
     if (user != null) {
       _formData['id'] = user.id;
       _formData['nome'] = user.nome;
-      _formData['email'] = user.email;
-      _formData['avatarUrl'] = user.avatarUrl;
+      _formData['telefone'] = user.telefone;
+      _formData['cep'] = user.cep;
+      _formData['qtdMembros'] = user.qtdMembros;
     }
   }
 
   @override
   void didChangeDependencies() {
+    // ignore: todo
     // TODO: implement didChangeDependencies
     super.didChangeDependencies();
     final User user = ModalRoute.of(context).settings.arguments;
@@ -48,8 +50,9 @@ class _UserFormState extends State<UserForm> {
               Provider.of<Users>(context, listen: false).put(User(
                 id: _formData['id'],
                 nome: _formData['nome'],
-                email: _formData['email'],
-                avatarUrl: _formData['avatarUrl'],
+                telefone: _formData['telefone'],
+                cep: _formData['cep'],
+                qtdMembros: _formData['qtdMembros'],
               ));
 
               Navigator.of(context).pop();
@@ -69,14 +72,20 @@ class _UserFormState extends State<UserForm> {
                 onSaved: (value) => _formData['nome'] = value,
               ),
               TextFormField(
-                initialValue: _formData['email'],
-                decoration: InputDecoration(labelText: 'Email'),
-                onSaved: (value) => _formData['email'] = value,
+                initialValue: _formData['telefone'],
+                decoration: InputDecoration(labelText: 'Telefone com o DDD:'),
+                onSaved: (value) => _formData['telefone'] = value,
               ),
               TextFormField(
-                initialValue: _formData['avatarUrl'],
-                decoration: InputDecoration(labelText: 'URL Foto'),
-                onSaved: (value) => _formData['avatarUrl'] = value,
+                initialValue: _formData['cep'],
+                decoration: InputDecoration(labelText: 'CEP'),
+                onSaved: (value) => _formData['cep'] = value,
+              ),
+              TextFormField(
+                initialValue: _formData['qtdMembros'],
+                decoration:
+                    InputDecoration(labelText: 'Quantidade de residentes'),
+                onSaved: (value) => _formData['qtdMembros'] = value,
               ),
             ],
           ),
