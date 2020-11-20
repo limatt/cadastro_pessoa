@@ -38,7 +38,7 @@ class _UserFormState extends State<UserForm> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tela de cadastro'),
+        title: Text('Cadastro'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.save),
